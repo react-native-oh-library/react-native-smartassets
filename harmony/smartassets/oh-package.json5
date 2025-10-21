@@ -3,7 +3,7 @@
   "devDependencies": {
   },
   "name": "@react-native-oh-tpl/react-native-smartassets",
-  "version": "1.0.4",
+  "version": "1.0.5-rc.1",
   "description": "Please describe the basic information.",
   "main": "index.ets",
   "author": "",

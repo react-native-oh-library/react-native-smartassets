@@ -1,6 +1,6 @@
 {
   "name": "@react-native-oh-tpl/react-native-smartassets",
-  "version": "1.0.4",
+  "version": "1.0.5-rc.1",
   "description": "Smart load react native image resource both from apk(ipa) and jsbundle Dir.",
   "main": "index.js",
   "scripts": {
