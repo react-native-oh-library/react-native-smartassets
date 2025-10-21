@@ -1,0 +1,14 @@
+{
+  "types": "",
+  "devDependencies": {
+  },
+  "name": "@react-native-oh-tpl/react-native-smartassets",
+  "version": "1.0.4",
+  "description": "Please describe the basic information.",
+  "main": "index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@rnoh/react-native-openharmony": "0.72.38"
+  }
+}

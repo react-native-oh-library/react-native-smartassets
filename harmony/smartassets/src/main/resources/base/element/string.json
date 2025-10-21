@@ -1,0 +1,20 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "permission_read_media_reason",
+      "value": "SmartAssets needs to read media files for asset management"
+    },
+    {
+      "name": "permission_write_media_reason",
+      "value": "SmartAssets needs to write media files for asset management"
+    },
+    {
+      "name": "permission_file_access_reason",
+      "value": "SmartAssets needs file access for asset management"
+    }
+  ]
+}
