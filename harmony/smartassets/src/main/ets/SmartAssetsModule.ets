@@ -22,12 +22,25 @@ interface SandboxPaths {
 interface HarmonySpec {
   initSmartAssets(): Promise<boolean>
   findAssetInBundles(assetName: string): string
+  setBundlePath(path: string | null): void
 }
 
 export class SmartAssetsModule extends UITurboModule implements HarmonySpec {
+  // 存储指定的 bundle 路径
+  private customBundlePath: string | null = null;
+
   // 初始化智能资源
   async initSmartAssets(): Promise<boolean> {
     return true;
+  }
+
+  // 设置指定的 bundle 路径
+  setBundlePath(path: string | null): void {
+    if (path && typeof path === 'string' && path.length > 0) {
+      this.customBundlePath = path;
+    } else {
+      this.customBundlePath = null;
+    }
   }
 
   findAssetInBundles(assetName: string): string {
@@ -48,14 +61,22 @@ export class SmartAssetsModule extends UITurboModule implements HarmonySpec {
         return '';
       }
 
-      // 第一步：先在本地 rawfile 中查找
+      // 第一步：如果设置了自定义路径，优先在指定路径查找
+      if (this.customBundlePath && this.customBundlePath.trim().length > 0) {
+        const customPathResult = this.searchInCustomPath(this.customBundlePath, assetName);
+        if (customPathResult) {
+          return customPathResult;
+        }
+      }
+
+      // 第二步：在本地 rawfile 中查找
       const localResult = this.discoverAndSearch(resourceManager, '', assetName);
       
       if (localResult) {
         return localResult;
       }
 
-      // 第二步：本地没找到，去沙箱路径中查找
+      // 第三步：本地没找到，去沙箱路径中查找
       const sandboxResult = this.searchInSandboxPaths(context, assetName);
       
       if (sandboxResult) {
@@ -64,6 +85,28 @@ export class SmartAssetsModule extends UITurboModule implements HarmonySpec {
 
       return '';
       
+    } catch (error) {
+      return '';
+    }
+  }
+
+  // 在指定的自定义路径中搜索资源
+  private searchInCustomPath(customPath: string, assetName: string): string {
+    try {
+      // 检查路径是否存在
+      if (!this.isDirectoryExists(customPath)) {
+        return '';
+      }
+
+      // 在指定路径中递归搜索
+      const result = this.recursiveSearchInDirectory(customPath, assetName);
+      
+      if (result) {
+        let uri = fileUri.getUriFromPath(result);
+        return uri;
+      }
+
+      return '';
     } catch (error) {
       return '';
     }

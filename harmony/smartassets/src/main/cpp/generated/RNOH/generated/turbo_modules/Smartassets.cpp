@@ -11,6 +11,7 @@ Smartassets::Smartassets(const ArkTSTurboModule::Context ctx, const std::string 
     methodMap_ = {
         ARK_ASYNC_METHOD_METADATA(initSmartAssets, 0),
         ARK_METHOD_METADATA(findAssetInBundles, 1),
+        ARK_METHOD_METADATA(setBundlePath, 1),
     };
 }
 

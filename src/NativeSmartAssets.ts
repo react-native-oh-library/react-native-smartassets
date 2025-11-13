@@ -33,8 +33,9 @@ export type Source = {
 }
 
 export interface Spec extends TurboModule {
-  initSmartAssets(): boolean
+  initSmartAssets(): Promise<boolean>
   findAssetInBundles(assetName: string): string
+  setBundlePath(path: string | null): void
 }
 
 export default TurboModuleRegistry.getEnforcing<Spec>('Smartassets');

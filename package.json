@@ -24,11 +24,13 @@
   },
   "peerDependencies": {
     "react": "18.2.0",
-    "react-native": "0.72.5",
-    "react-native-harmony": "npm:@react-native-oh/react-native-harmony@^0.72.32"
+    "react-native": "0.72.5"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@rnoh/react-native-harmony-cli": "npm:@react-native-oh/react-native-harmony-cli@^0.0.27",
-    "typescript": "^5.3.2"
+    "@react-native-oh/react-native-harmony-cli": "npm:@react-native-oh/react-native-harmony-cli@^0.0.27",
+    "react-native": "0.72.5"
   }
 }

@@ -7,7 +7,7 @@ Pods/
 lib/js/
 /android/
 /ios/
-
+**/oh_modules/
 *.iml
 *.xcworkspace
 local.properties
