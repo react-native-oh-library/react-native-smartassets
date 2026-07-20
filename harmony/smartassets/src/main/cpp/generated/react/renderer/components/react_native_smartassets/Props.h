@@ -11,10 +11,8 @@
 
 
 
-namespace facebook {
-namespace react {
+namespace facebook::react {
 
 
 
-} // namespace react
-} // namespace facebook
+} // namespace facebook::react

@@ -10,16 +10,14 @@
 
 #pragma once
 
-#include <react/renderer/components/react_native_smartassets/EventEmitters.h>
-#include <react/renderer/components/react_native_smartassets/Props.h>
-#include <react/renderer/components/react_native_smartassets/States.h>
+#include "EventEmitters.h"
+#include "Props.h"
+#include "States.h"
 #include <react/renderer/components/view/ConcreteViewShadowNode.h>
 #include <jsi/jsi.h>
 
-namespace facebook {
-namespace react {
+namespace facebook::react {
 
 
 
-} // namespace react
-} // namespace facebook
+} // namespace facebook::react

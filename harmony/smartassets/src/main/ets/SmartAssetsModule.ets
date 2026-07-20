@@ -5,6 +5,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import fs from '@ohos.file.fs';
 import fileIo from '@ohos.fileio';
 import { fileUri } from '@kit.CoreFileKit';
+import { AnyThreadTurboModule } from '@rnoh/react-native-openharmony';
 
 // 沙箱路径接口
 interface SandboxPaths {
@@ -18,14 +19,8 @@ interface SandboxPaths {
   resourceDir: string;
 }
 
-// 鸿蒙平台接口 - 只保留核心方法
-interface HarmonySpec {
-  initSmartAssets(): Promise<boolean>
-  findAssetInBundles(assetName: string): string
-  setBundlePath(path: string | null): void
-}
 
-export class SmartAssetsModule extends UITurboModule implements HarmonySpec {
+export class SmartAssetsAnyModule extends AnyThreadTurboModule implements TM.Smartassets.Spec {
   // 存储指定的 bundle 路径
   private customBundlePath: string | null = null;
 

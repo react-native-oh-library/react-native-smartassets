@@ -10,13 +10,15 @@
 
 #pragma once
 
-#include <react/renderer/components/react_native_smartassets/ShadowNodes.h>
+#include "ShadowNodes.h"
 #include <react/renderer/core/ConcreteComponentDescriptor.h>
+#include <react/renderer/componentregistry/ComponentDescriptorProviderRegistry.h>
 
-namespace facebook {
-namespace react {
+namespace facebook::react {
 
 
 
-} // namespace react
-} // namespace facebook
+void react_native_smartassets_registerComponentDescriptorsFromCodegen(
+  std::shared_ptr<const ComponentDescriptorProviderRegistry> registry);
+
+} // namespace facebook::react
